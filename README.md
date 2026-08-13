@@ -740,7 +740,8 @@ GET /api/audit-logs
 
 ## Login
 
-![Login Page](README-screenshots/login.png)
+<img width="936" height="742" alt="image" src="https://github.com/user-attachments/assets/290416b8-d34e-4522-ad4d-4f5d49c4b8de" />
+
 
 The login page provides secure authentication for authorized users.
 
@@ -748,31 +749,18 @@ The login page provides secure authentication for authorized users.
 
 ## Dashboard
 
-![Dashboard](README-screenshots/dashboard.png)
+<img width="1904" height="916" alt="image" src="https://github.com/user-attachments/assets/03bbaa33-b733-412a-b79c-875fac53795c" />
+
 
 The dashboard provides an overview of system-wide asset information.
 
 ---
 
-## Base Management
-
-![Bases](README-screenshots/bases.png)
-
-Manage military bases and their locations.
-
----
-
-## Equipment Types
-
-![Equipment Types](README-screenshots/equipment.png)
-
-Manage equipment categories including weapons, vehicles, and ammunition.
-
----
 
 ## Purchases
 
-![Purchases](README-screenshots/purchases.png)
+<img width="1895" height="897" alt="image" src="https://github.com/user-attachments/assets/23ab11ae-b324-4bea-822e-519ac0f59d7b" />
+
 
 Record and monitor military asset purchases.
 
@@ -788,7 +776,8 @@ Track asset transfers between different bases.
 
 ## Assignments
 
-![Assignments](README-screenshots/assignments.png)
+<img width="1895" height="900" alt="image" src="https://github.com/user-attachments/assets/fa2ad5f0-aeaf-4de0-85b6-87df837eb9da" />
+
 
 Assign assets to military personnel.
 
@@ -796,7 +785,8 @@ Assign assets to military personnel.
 
 ## Expenditures
 
-![Expenditures](README-screenshots/expenditures.png)
+<img width="1887" height="894" alt="image" src="https://github.com/user-attachments/assets/7f846405-d990-45cf-95c7-0fd0bf11e48f" />
+
 
 Record assets consumed or expended during operations.
 
@@ -804,7 +794,7 @@ Record assets consumed or expended during operations.
 
 ## Audit Logs
 
-![Audit Logs](README-screenshots/audit-logs.png)
+<img width="1887" height="869" alt="image" src="https://github.com/user-attachments/assets/188d0e16-d59b-4b31-9bef-f0388db74fa5" />
 
 Monitor important actions performed within the system.
 
