@@ -1,4 +1,4 @@
-````markdown
+```markdown
 #  Military Asset Management System
 
 A full-stack **Military Asset Management System** designed to manage military equipment, purchases, transfers, personnel assignments, expenditures, bases, users, and audit activities through a secure web-based dashboard.
