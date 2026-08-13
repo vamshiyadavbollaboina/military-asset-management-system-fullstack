@@ -25,31 +25,8 @@ https://military-asset-management-system-ykub.onrender.com/
 
 ---
 
-# 📌 Table of Contents
 
-- [Project Overview](#-project-overview)
-- [Key Features](#-key-features)
-- [Architecture](#-architecture)
-- [System Flow](#-system-flow)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Database Architecture](#-database-architecture)
-- [User Roles](#-user-roles)
-- [Authentication](#-authentication)
-- [API Structure](#-api-structure)
-- [Screenshots](#-screenshots)
-- [Installation](#-installation)
-- [Environment Variables](#-environment-variables)
-- [Running the Project](#-running-the-project)
-- [Test Accounts](#-test-accounts)
-- [Deployment](#-deployment)
-- [Security](#-security)
-- [Future Improvements](#-future-improvements)
-- [Author](#-author)
-
----
-
-# 📖 Project Overview
+# Project Overview
 
 The Military Asset Management System provides a centralized platform for managing military assets across multiple bases.
 
@@ -71,9 +48,9 @@ The application uses a REST API architecture where the React frontend communicat
 
 ---
 
-# 🚀 Key Features
+# Key Features
 
-## 🔐 Authentication
+## Authentication
 
 - Secure login system
 - JWT authentication
@@ -84,7 +61,7 @@ The application uses a REST API architecture where the React frontend communicat
 
 ---
 
-## 📊 Dashboard
+## Dashboard
 
 The dashboard provides an overview of the military asset system.
 
@@ -100,7 +77,7 @@ It displays:
 
 ---
 
-## 🏢 Base Management
+## Base Management
 
 Administrators can manage military bases.
 
@@ -120,7 +97,7 @@ Location: Hyderabad
 
 ---
 
-## 📦 Equipment Management
+## Equipment Management
 
 The system supports different equipment categories:
 
@@ -132,7 +109,7 @@ Equipment types are stored centrally and can be associated with purchases, trans
 
 ---
 
-## 🛒 Purchases
+## Purchases
 
 Users with appropriate permissions can record asset purchases.
 
@@ -146,7 +123,7 @@ Purchase information includes:
 
 ---
 
-## 🔄 Asset Transfers
+## Asset Transfers
 
 Assets can be transferred between military bases.
 
@@ -156,22 +133,12 @@ Transfer information includes:
 * Destination base
 * Equipment type
 * Quantity
-* Transfer status
 * Transfer date
 * Initiating user
 
-Transfer statuses:
-
-```text
-PENDING
-IN_TRANSIT
-COMPLETED
-CANCELLED
-```
-
 ---
 
-## 👤 Personnel Assignments
+## Personnel Assignments
 
 Military assets can be assigned to personnel.
 
@@ -182,11 +149,10 @@ Assignment information includes:
 * Personnel name
 * Quantity
 * Assignment date
-* Assigned by
 
 ---
 
-## 📉 Expenditures
+## Expenditures
 
 The system allows users to record consumed or expended assets.
 
@@ -210,7 +176,7 @@ Each expenditure contains:
 
 ---
 
-## 📝 Audit Logs
+## Audit Logs
 
 Important system activities are tracked through audit logs.
 
@@ -227,11 +193,9 @@ UPDATE
 DELETE
 ```
 
-This provides traceability and improves system accountability.
-
 ---
 
-# 🏗️ Architecture
+# Architecture
 
 The application follows a **3-tier full-stack architecture**.
 
@@ -282,7 +246,7 @@ The application follows a **3-tier full-stack architecture**.
 
 ---
 
-# 🔄 System Flow
+# System Flow
 
 ```text
 User
@@ -322,7 +286,7 @@ Admin       Base Commander
 
 ---
 
-# 🧰 Technology Stack
+# Technology Stack
 
 ## Frontend
 
@@ -332,8 +296,6 @@ Admin       Base Commander
 | React Router DOM | Routing                |
 | Axios            | API communication      |
 | Tailwind CSS     | Styling                |
-| Lucide React     | Icons                  |
-| Context API      | Authentication/state   |
 | Vite             | Development/build tool |
 
 ---
@@ -348,9 +310,7 @@ Admin       Base Commander
 | PostgreSQL | Database                  |
 | JWT        | Authentication            |
 | bcrypt     | Password hashing          |
-| Helmet     | Security headers          |
 | CORS       | Cross-origin requests     |
-| dotenv     | Environment configuration |
 
 ---
 
@@ -364,7 +324,7 @@ Admin       Base Commander
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```text
 military-asset-management-system/
@@ -433,7 +393,7 @@ military-asset-management-system/
 
 ---
 
-# 🗄️ Database Architecture
+# Database Architecture
 
 The project uses **PostgreSQL with Prisma ORM**.
 
@@ -468,7 +428,7 @@ Main entities:
 
 ---
 
-# 📋 Database Models
+# Database Models
 
 The Prisma schema contains the following models:
 
@@ -603,17 +563,16 @@ createdAt
 
 ---
 
-# 👥 User Roles
+# User Roles
 
 The application supports three roles.
 
-## 👨‍💼 Admin
+## Admin
 
 Admin users have the highest level of access.
 
 Typical responsibilities:
 
-* Manage bases
 * Manage users
 * Manage equipment
 * View dashboard
@@ -625,7 +584,7 @@ Typical responsibilities:
 
 ---
 
-## 🪖 Base Commander
+##  Base Commander
 
 Base Commanders manage assets associated with their assigned base.
 
@@ -639,7 +598,7 @@ Typical responsibilities:
 
 ---
 
-## 🚚 Logistics Officer
+## Logistics Officer
 
 Logistics Officers are responsible for logistics operations.
 
@@ -652,7 +611,7 @@ Typical responsibilities:
 
 ---
 
-# 🔐 Authentication
+#  Authentication
 
 The application uses **JWT-based authentication**.
 
@@ -680,17 +639,9 @@ Frontend stores authentication state
 Protected API requests
 ```
 
-Protected requests include the JWT token in the request headers.
-
-Example:
-
-```text
-Authorization: Bearer <JWT_TOKEN>
-```
-
 ---
 
-# 🔌 API Structure
+# API Structure
 
 The backend exposes RESTful APIs under:
 
@@ -782,31 +733,12 @@ GET /api/audit-logs
 
 ---
 
-# 🖥️ Screenshots
+# Screenshots
 
-> Add your screenshots to:
->
-> `README-screenshots/`
-
-Recommended structure:
-
-```text
-README-screenshots/
-│
-├── login.png
-├── dashboard.png
-├── bases.png
-├── equipment.png
-├── purchases.png
-├── transfers.png
-├── assignments.png
-├── expenditures.png
-└── audit-logs.png
-```
 
 ---
 
-## 🔐 Login
+## Login
 
 ![Login Page](README-screenshots/login.png)
 
@@ -814,7 +746,7 @@ The login page provides secure authentication for authorized users.
 
 ---
 
-## 📊 Dashboard
+## Dashboard
 
 ![Dashboard](README-screenshots/dashboard.png)
 
@@ -822,7 +754,7 @@ The dashboard provides an overview of system-wide asset information.
 
 ---
 
-## 🏢 Base Management
+## Base Management
 
 ![Bases](README-screenshots/bases.png)
 
@@ -830,7 +762,7 @@ Manage military bases and their locations.
 
 ---
 
-## 📦 Equipment Types
+## Equipment Types
 
 ![Equipment Types](README-screenshots/equipment.png)
 
@@ -838,7 +770,7 @@ Manage equipment categories including weapons, vehicles, and ammunition.
 
 ---
 
-## 🛒 Purchases
+## Purchases
 
 ![Purchases](README-screenshots/purchases.png)
 
@@ -846,7 +778,7 @@ Record and monitor military asset purchases.
 
 ---
 
-## 🔄 Transfers
+## Transfers
 
 ![Transfers](README-screenshots/transfers.png)
 
@@ -854,7 +786,7 @@ Track asset transfers between different bases.
 
 ---
 
-## 👤 Assignments
+## Assignments
 
 ![Assignments](README-screenshots/assignments.png)
 
@@ -862,7 +794,7 @@ Assign assets to military personnel.
 
 ---
 
-## 📉 Expenditures
+## Expenditures
 
 ![Expenditures](README-screenshots/expenditures.png)
 
@@ -870,7 +802,7 @@ Record assets consumed or expended during operations.
 
 ---
 
-## 📝 Audit Logs
+## Audit Logs
 
 ![Audit Logs](README-screenshots/audit-logs.png)
 
@@ -878,7 +810,7 @@ Monitor important actions performed within the system.
 
 ---
 
-# 💻 Installation
+# Installation
 
 ## 1. Clone the Repository
 
@@ -894,7 +826,7 @@ cd military-asset-management-system-fullstack
 
 ---
 
-# ⚙️ Backend Setup
+# Backend Setup
 
 Navigate to backend:
 
@@ -932,7 +864,7 @@ PORT=5000
 
 ---
 
-# 🗃️ Prisma Setup
+# Prisma Setup
 
 Generate Prisma Client:
 
@@ -954,7 +886,7 @@ npx prisma migrate deploy
 
 ---
 
-# ▶️ Start Backend
+# Start Backend
 
 ```bash
 npm run dev
@@ -974,7 +906,7 @@ http://localhost:5000
 
 ---
 
-# 🎨 Frontend Setup
+# Frontend Setup
 
 Open another terminal.
 
@@ -1004,7 +936,7 @@ http://localhost:5173
 
 ---
 
-# 🔗 Frontend API Configuration
+# Frontend API Configuration
 
 The frontend communicates with the backend through:
 
@@ -1035,7 +967,7 @@ export default api;
 
 ---
 
-# 🔑 Test Accounts
+# Test Accounts
 
 The following accounts can be used for testing.
 
@@ -1060,11 +992,10 @@ Username: logistics_officer
 Password: LogisticsPass123!
 ```
 
-> ⚠️ These credentials are intended for demonstration/testing purposes only. Do not use these credentials in a production environment.
 
 ---
 
-# 🚀 Deployment
+# Deployment
 
 ## Frontend Deployment
 
@@ -1106,7 +1037,7 @@ PORT=5000
 
 ---
 
-# 🛡️ Security
+# Security
 
 The application implements several security practices:
 
@@ -1114,105 +1045,15 @@ The application implements several security practices:
 * Password hashing
 * Role-based authorization
 * Protected API routes
-* Helmet security headers
 * CORS configuration
 * Environment variables for secrets
 * Prisma ORM for database access
 * Input validation
 * Audit logging
 
-Sensitive files such as `.env` are excluded using `.gitignore`.
-
 ---
 
-# 📦 Git Ignore
-
-The project ignores:
-
-```text
-node_modules/
-.env
-dist/
-build/
-coverage/
-.vscode/
-.idea/
-*.log
-*.db
-*.sqlite
-uploads/
-```
-
----
-
-# 🔄 Development Workflow
-
-```text
-Developer
-   │
-   ▼
-Git
-   │
-   ▼
-GitHub
-   │
-   ├───────────────┐
-   ▼               ▼
-Vercel           Render
-   │               │
-   ▼               ▼
-Frontend        Backend API
-                   │
-                   ▼
-               PostgreSQL
-```
-
----
-
-# 🧪 Testing
-
-Before deployment, verify:
-
-### Authentication
-
-```text
-✓ Admin login
-✓ Base Commander login
-✓ Logistics Officer login
-✓ Invalid credentials
-```
-
-### Assets
-
-```text
-✓ Create purchase
-✓ Create transfer
-✓ Create assignment
-✓ Create expenditure
-```
-
-### Management
-
-```text
-✓ Create base
-✓ Create equipment type
-✓ View dashboard
-✓ View audit logs
-```
-
-### Deployment
-
-```text
-✓ Frontend loads
-✓ Backend API responds
-✓ CORS works
-✓ Login works
-✓ Database connection works
-```
-
----
-
-# 📈 Future Improvements
+# Future Improvements
 
 Possible future enhancements:
 
@@ -1233,7 +1074,7 @@ Possible future enhancements:
 
 ---
 
-# 🎯 Project Goals
+# Project Goals
 
 The main goals of this project are:
 
@@ -1248,7 +1089,7 @@ The main goals of this project are:
 
 ---
 
-# 📊 High-Level Data Flow
+#  High-Level Data Flow
 
 ```text
                     USER
@@ -1290,25 +1131,6 @@ The main goals of this project are:
 
 ---
 
-# 📌 Project Highlights
-
-### Full Stack
-
-```text
-React + Node.js + Express + PostgreSQL
-```
-
-### ORM
-
-```text
-Prisma
-```
-
-### Authentication
-
-```text
-JWT + bcrypt
-```
 
 ### Frontend Deployment
 
@@ -1330,7 +1152,7 @@ PostgreSQL
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 **Vamshi Yadav**
 
@@ -1340,7 +1162,7 @@ GitHub:
 
 ---
 
-# ⭐ Acknowledgements
+# Acknowledgements
 
 This project was developed as a full-stack military asset management application demonstrating:
 
@@ -1351,9 +1173,7 @@ This project was developed as a full-stack military asset management application
 * Authentication
 * Authorization
 * Role-based access control
-* Cloud deployment
 * Production-ready project structure
 
 ---
 
-**One important point:** don't put your actual `.env` or database passwords in the README. The test credentials can be documented as above if they're specifically demo accounts, but production credentials should never be committed.
