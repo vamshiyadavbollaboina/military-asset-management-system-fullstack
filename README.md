@@ -174,6 +174,9 @@ UPDATE
 ---
 
 # Architecture
+<img width="944" height="1680" alt="Technical architecture diagram showing a 3-tier full-stack application structure  Top tier_ User_Browser connecting via HTTPS to React Frontend layer (containing React js, React Router, Axios, Tailwind CSS, Context" src="https://github.com/user-attachments/assets/026611b0-a997-438e-8eda-dd73354cf68c" />
+
+
 
 The application follows a **3-tier full-stack architecture**.
 
