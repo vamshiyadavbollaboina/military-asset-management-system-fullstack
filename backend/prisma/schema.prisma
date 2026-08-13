@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  BASE_COMMANDER
+  LOGISTICS_OFFICER
+}
+
+enum EquipmentCategory {
+  WEAPON
+  VEHICLE
+  AMMUNITION
+}
+
+enum TransferStatus {
+  PENDING
+  IN_TRANSIT
+  COMPLETED
+  CANCELLED
+}
+
+enum AuditAction {
+  LOGIN
+  PURCHASE
+  TRANSFER
+  ASSIGNMENT
+  EXPENDITURE
+  CREATE
+  UPDATE
+  DELETE
+}
+
+model Base {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  location  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users             User[]
+  purchases         Purchase[]
+  sourceTransfers   Transfer[] @relation("SourceBase")
+  destinationTransfers Transfer[] @relation("DestinationBase")
+  assignments       Assignment[]
+  expenditures      Expenditure[]
+
+  @@index([location])
+  @@map("bases")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  role         UserRole
+  baseId       Int?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  base         Base?       @relation(fields: [baseId], references: [id], onDelete: SetNull)
+  purchases    Purchase[]
+  transfers    Transfer[]
+  assignments  Assignment[]
+  expenditures Expenditure[]
+  auditLogs    AuditLog[]
+
+  @@index([baseId])
+  @@index([role])
+  @@map("users")
+}
+
+model EquipmentType {
+  id        Int               @id @default(autoincrement())
+  name      String            @unique
+  category  EquipmentCategory
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  purchases    Purchase[]
+  transfers    Transfer[]
+  assignments  Assignment[]
+  expenditures Expenditure[]
+
+  @@index([category])
+  @@map("equipment_types")
+}
+
+model Purchase {
+  id              Int      @id @default(autoincrement())
+  baseId          Int
+  equipmentTypeId Int
+  quantity        Int
+  purchaseDate    DateTime @default(now())
+  createdAt       DateTime @default(now())
+  createdById     Int
+
+  base          Base          @relation(fields: [baseId], references: [id], onDelete: Restrict)
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id], onDelete: Restrict)
+  createdBy     User          @relation(fields: [createdById], references: [id], onDelete: Restrict)
+
+  @@index([baseId])
+  @@index([equipmentTypeId])
+  @@index([purchaseDate])
+  @@index([createdAt])
+  @@map("purchases")
+}
+
+model Transfer {
+  id                Int            @id @default(autoincrement())
+  sourceBaseId      Int
+  destinationBaseId Int
+  equipmentTypeId   Int
+  quantity          Int
+  status            TransferStatus @default(COMPLETED)
+  transferDate      DateTime       @default(now())
+  createdAt         DateTime       @default(now())
+  initiatedById     Int
+
+  sourceBase      Base          @relation("SourceBase", fields: [sourceBaseId], references: [id], onDelete: Restrict)
+  destinationBase Base          @relation("DestinationBase", fields: [destinationBaseId], references: [id], onDelete: Restrict)
+  equipmentType   EquipmentType @relation(fields: [equipmentTypeId], references: [id], onDelete: Restrict)
+  initiatedBy     User          @relation(fields: [initiatedById], references: [id], onDelete: Restrict)
+
+  @@index([sourceBaseId])
+  @@index([destinationBaseId])
+  @@index([equipmentTypeId])
+  @@index([transferDate])
+  @@index([status])
+  @@map("transfers")
+}
+
+model Assignment {
+  id              Int      @id @default(autoincrement())
+  baseId          Int
+  equipmentTypeId Int
+  personnelName   String
+  quantity        Int
+  assignedDate    DateTime @default(now())
+  createdAt       DateTime @default(now())
+  assignedById    Int
+
+  base          Base          @relation(fields: [baseId], references: [id], onDelete: Restrict)
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id], onDelete: Restrict)
+  assignedBy    User          @relation(fields: [assignedById], references: [id], onDelete: Restrict)
+
+  @@index([baseId])
+  @@index([equipmentTypeId])
+  @@index([assignedDate])
+  @@map("assignments")
+}
+
+model Expenditure {
+  id              Int      @id @default(autoincrement())
+  baseId          Int
+  equipmentTypeId Int
+  quantity        Int
+  reason          String
+  expendedDate    DateTime @default(now())
+  createdAt       DateTime @default(now())
+  recordedById    Int
+
+  base          Base          @relation(fields: [baseId], references: [id], onDelete: Restrict)
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id], onDelete: Restrict)
+  recordedBy    User          @relation(fields: [recordedById], references: [id], onDelete: Restrict)
+
+  @@index([baseId])
+  @@index([equipmentTypeId])
+  @@index([expendedDate])
+  @@map("expenditures")
+}
+
+model AuditLog {
+  id        Int         @id @default(autoincrement())
+  userId    Int?
+  action    AuditAction
+  details   String
+  createdAt DateTime    @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
