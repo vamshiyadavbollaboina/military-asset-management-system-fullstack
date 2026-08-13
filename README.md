@@ -32,7 +32,6 @@ The Military Asset Management System provides a centralized platform for managin
 
 The system allows authorized users to:
 
-- Manage military bases
 - Manage equipment types
 - Record asset purchases
 - Transfer assets between bases
@@ -41,7 +40,6 @@ The system allows authorized users to:
 - Monitor inventory
 - View dashboard statistics
 - Track system activities through audit logs
-- Authenticate users securely using JWT
 - Control access using role-based authorization
 
 The application uses a REST API architecture where the React frontend communicates with the Express backend through Axios.
@@ -67,7 +65,6 @@ The dashboard provides an overview of the military asset system.
 
 It displays:
 
-- Total bases
 - Total equipment
 - Purchase statistics
 - Transfer statistics
@@ -76,24 +73,6 @@ It displays:
 - Recent system activity
 
 ---
-
-## Base Management
-
-Administrators can manage military bases.
-
-Each base contains:
-
-- Base name
-- Location
-- Created date
-- Updated date
-
-Example:
-
-```text
-Alpha Base
-Location: Hyderabad
-````
 
 ---
 
@@ -190,7 +169,6 @@ ASSIGNMENT
 EXPENDITURE
 CREATE
 UPDATE
-DELETE
 ```
 
 ---
@@ -434,25 +412,12 @@ The Prisma schema contains the following models:
 
 ```text
 User
-Base
 EquipmentType
 Purchase
 Transfer
 Assignment
 Expenditure
 AuditLog
-```
-
----
-
-## Base
-
-```text
-id
-name
-location
-createdAt
-updatedAt
 ```
 
 ---
@@ -1049,18 +1014,12 @@ Possible future enhancements:
 
 * Advanced inventory tracking
 * Real-time notifications
-* Asset stock calculations
-* Low-stock alerts
 * Advanced analytics
-* Export reports to Excel/PDF
 * User management interface
 * Pagination
 * Search and filtering
-* Asset history timeline
-* Enhanced audit reporting
 * Multi-factor authentication
 * Automated backup system
-* Real-time dashboard updates
 
 ---
 
